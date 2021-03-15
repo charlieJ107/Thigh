@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="cn.vankyle.BmiCalculator.FirstFragment">
+
+    <Button
+            android:id="@+id/button_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/next"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+    />
+    <Button
+            android:text="@string/bmi_calculate_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/bmiCalculateButton"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="286dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="133dp"
+    />
+    <EditText
+            android:layout_width="157dp"
+            android:layout_height="49dp"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/BodyWeightInput"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="221dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="180dp"
+            android:autofillHints="@string/weight_input_intro"
+    />
+    <TextView
+            android:text="@string/Bmi_Calculating_welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/BmiValue"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="393dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="208dp"/>
+
+    <TextView
+            android:text="@string/height_input_intro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/BodyHeightIntroTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="110dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="28dp"/>
+    <TextView
+            android:text="@string/weight_input_intro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/BodyWeightIntroTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="197dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="26dp"/>
+    <TextView
+            android:text="@string/bmi_result_intro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/BmiResultIntro"
+            android:layout_marginTop="56dp"
+            app:layout_constraintTop_toBottomOf="@+id/bmiCalculateButton" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="61dp"/>
+    <EditText
+            android:layout_width="159dp"
+            android:layout_height="46dp"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/BodyHeightInput"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="93dp" android:layout_marginStart="3dp"
+            app:layout_constraintStart_toEndOf="@+id/BodyHeightIntroTextView"
+            android:autofillHints="@string/height_input_intro"
+    />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
