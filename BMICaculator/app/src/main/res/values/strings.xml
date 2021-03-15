@@ -10,8 +10,8 @@
     <!-- string used for first fragment that calculate the bmi -->
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="Bmi_Calculating_welcome">Welcome to BMI Calculator</string>
-    <string name="weight_input_intro">Please enter your Body Weight:</string>
-    <string name="height_input_intro">Please enter your Body Height:</string>
+    <string name="weight_input_intro">Please enter your Body Weight(Kg):</string>
+    <string name="height_input_intro">Please enter your Body Height(cm):</string>
     <string name="bmi_calculate_button">Calculate your BMI</string>
     <string name="bmi_result_intro">Your BMI value is:</string>
 

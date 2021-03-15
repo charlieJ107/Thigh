@@ -8,8 +8,8 @@
 	<string name="previous">前一页</string>
 	<string name="hello_first_fragment">你好第一个片段</string>
 	<string name="Bmi_Calculating_welcome">欢迎来到BMI计算器</string>
-	<string name="weight_input_intro">请输入您的体重：</string>
-	<string name="height_input_intro">请输入您的身体高度：</string>
+	<string name="weight_input_intro">请输入您的体重(千克)：</string>
+	<string name="height_input_intro">请输入您的身体高度(厘米)：</string>
 	<string name="bmi_calculate_button">计算你的BMI.</string>
 	<string name="bmi_result_intro">您的BMI值是：</string>
 	<string name="hello_second_fragment">你好第二片段。 </string>
