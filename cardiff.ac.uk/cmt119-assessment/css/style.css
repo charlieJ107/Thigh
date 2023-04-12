@@ -1,0 +1,372 @@
+body {
+    display: flex;
+    font-family: Ubuntu;
+    background: #f8f8f8;
+    color: #141414;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(8deg, #00143d, #06080e 50%);
+    overflow: hidden;
+    padding-top: 10vh;
+    z-index: 2;
+}
+
+#website-header {
+    z-index: 4;
+}
+
+#website-title {
+    text-decoration: none;
+    color: #f8f8f8;
+    font-family: Ubuntu;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    text-align: right;
+    font-size: 1.8em;
+    padding-right: 3vw;
+}
+
+#website-description {
+    color: #d8d8d8;
+    text-align: right;
+    font-size: 1.5em;
+    padding-right: 3.4vw;
+}
+
+
+#space {
+    animation: slide 8s linear infinite;
+    background-image: url("../image/stars.svg");
+    background-position: center center;
+    background-size: 240px;
+    height: 400%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 400%;
+    z-index: 1;
+}
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1vh;
+    z-index: 3;
+}
+
+#main-title {
+    text-align: center;
+}
+
+.article-link {
+    display: flex;
+    text-decoration: none;
+    transition: color ease .3s;
+    justify-content: center;
+    color: #00143d;
+    width: 65vw;
+}
+
+.article-link:hover {
+    background-color: #cfcfcf;
+    transition: 0.5s;
+}
+
+.article-item {
+    display: flex;
+    flex-direction: column;
+    min-height: 23vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    align-items: center;
+}
+
+.article-title {
+    display: flex;
+    font-size: 2.2em;
+    font-weight: bold;
+    margin-bottom: 0;
+    justify-content: center;
+    text-align: center;
+}
+
+.article-summary {
+    display: flex;
+    color: #909090;
+    width: 80%;
+    justify-content: center;
+    text-align: center;
+}
+
+.full-article {
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+    width: 65vw;
+    padding-top: 5vh;
+    justify-content: center;
+}
+
+.headline {
+    font-weight: bold;
+    font-size: 3em;
+    padding-left: 3vw;
+}
+
+.subtitle {
+    padding-left: 3vw;
+    color: #a4a4a4;
+}
+
+.title-img-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    align-items: center;
+}
+
+.title-img {
+    width: 80%;
+}
+
+
+.img-source {
+    align-self: end;
+    padding-right: 10%;
+    color: #707070;
+    font-style: italic;
+}
+
+.divider {
+    border-top: hsl(210deg 8% 85%) solid;
+    width: 85%;
+    align-self: center;
+}
+
+.divider::after {
+    display: block;
+    content: '';
+    width: 7px;
+    height: 7px;
+    border: 1px solid #dadada 1px solid;
+    position: relative;
+    left: 50%;
+    margin-left: -5px;
+    background: #d3d3d3;
+    border-radius: 100%;
+    box-shadow: #f8f8f8 0 0 0 5px;
+}
+
+.article-block {
+    padding-left: 5vw;
+    padding-right: 5vw;
+    line-height: 3vh;
+}
+
+.beginning:first-child::first-letter {
+    font-size: 4em;
+    float: left;
+}
+
+.normal {
+    line-height: 3vh;
+}
+
+.subtitle-h2 {
+    padding-left: 5vw;
+    line-height: 3vh;
+    font-size: 1.3em;
+}
+
+.reference {
+    background-color: #d4d4d4;
+    border-left: #707070 solid 0.5vw;
+    padding-left: 2vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    border-radius: 0 8px 8px 0;
+}
+
+.formular {
+    font-family: NotoSansMath;
+    font-style: italic;
+    background-color: #e4e4e4;
+    border-radius: 4px 4px 4px 4px;
+    padding-left: 0.3em;
+    padding-right: 0.5em;
+}
+
+.article-img-contianer {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-self: center;
+    /* align-items: center; */
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    height: 15vh;
+    margin-top: 3vh;
+    padding-bottom: 2vh;
+}
+
+.reference-section {
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    line-height: normal;
+}
+
+.reference-item {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    font-weight: lighter;
+}
+
+.license {
+    text-align: center;
+    vertical-align: baseline;
+    font-weight: lighter;
+    width: 60%;
+}
+
+@keyframes slide {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-240px, -240px, 0);
+    }
+}
+
+@font-face {
+    font-family: Ubuntu;
+    src: url(../font//Ubuntu-Regular.ttf);
+}
+
+@font-face {
+    font-family: Ubuntu;
+    font-weight: bold;
+    src: url(../font/Ubuntu-Bold.ttf);
+}
+
+@font-face {
+    font-family: Ubuntu;
+    font-weight: bold;
+    font-style: italic;
+    src: url(../font/Ubuntu-BoldItalic.ttf);
+}
+
+@font-face {
+    font-family: Ubuntu;
+    font-weight: lighter;
+    src: url(../font/Ubuntu-Light.ttf);
+}
+
+@font-face {
+    font-family: Ubuntu;
+    font-weight: lighter;
+    font-style: italic;
+    src: url(../font//Ubuntu-LightItalic.ttf);
+}
+
+@font-face {
+    font-family: Ubuntu;
+    font-weight: medium;
+    src: url(../font//Ubuntu-Medium.ttf);
+}
+
+@font-face {
+    font-family: Ubuntu;
+    font-weight: medium;
+    font-style: italic;
+    src: url(../font/Ubuntu-MediumItalic.ttf);
+}
+
+@font-face {
+    font-family: NotoSansMath;
+    src: url(../font/NotoSansMath-Regular.ttf);
+}
+
+/* Responsive layout */
+@media screen and (min-width: 960px) {
+    header {
+        position: fixed;
+        max-width: 35vw;
+        height: 100%;
+    }
+
+    main {
+        position: absolute;
+        left: 35vw;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    #website-title {
+        font-size: 1.3em;
+    }
+
+    #website-description {
+        font-size: 1.0em;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    header {
+        padding-top: 5vh;
+        padding-bottom: 5vh
+    }
+
+    #website-title {
+        text-align: center;
+        font-size: 1.4em;
+    }
+
+    #website-description {
+        font-size: 1.2em;
+    }
+
+    body {
+        flex-direction: column;
+    }
+
+    main {
+        align-items: center;
+    }
+
+    .full-article {
+        width: 80vw;
+    }
+
+    .article-link {
+        width: 80%;
+        align-self: center;
+    }
+
+    #space {
+        height: 100%;
+        width: 200%;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+    #website-title {
+        font-size: 0.7em;
+    }
+
+    #website-description {
+        font-size: 0.6em;
+    }
+}

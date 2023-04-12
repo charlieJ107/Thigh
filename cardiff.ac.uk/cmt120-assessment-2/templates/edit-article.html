@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% set active_page = "None" %}
+{% block content %}
+    <h3 class="mb-3">{{ title }}</h3>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                {% if category=="message" %}
+                    <div class="alert alert-primary" role="alert">
+                        {{ message }}
+                    </div>
+                {% else %}
+                    <div class="alert alert-{{ category }}" role="alert">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <form method="post" class="w-75 form-group">
+        <div class="mb-3 text-center">
+            <label class="form-label">Article Subject</label>
+            <input type="text" class="form-control w-100" name="subject" value="{{ subject }}">
+        </div>
+        <div class="mb-3 text-center">
+            <label class="form-label" for="content">Article Content</label>
+            <textarea class="vw-50 form-control min-vh-100"
+                      type="text" name="content"
+                      placeholder="Article content, you can use Markdown syntax">{% if content != None %}{{ content }}{% endif %}</textarea>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,155 @@
+{% extends "layout.html" %}
+{% set active_page = "Home" %}
+{% block page_head %}
+    <link rel="stylesheet" type="text/css" href="/static/css/microsoft-social-sharing.css"/>
+{% endblock %}
+
+{% block content %}
+    <h1>{{ article.subject }}</h1>
+    <!-- Start Article meta data -->
+    <div>
+        <p>
+            <time datetime="{{ article.create_at }}">{{ article.create_at.strftime( "%d-%m-%Y") }}</time>
+            <span>|</span>
+            {% for tag in tags %}
+                <span class="badge text-bg-light">{{ tag.value }}</span>
+            {% endfor %}
+        </p>
+        {% if current_user.is_authenticated and current_user.id == 1 %}
+            <a href="{{ url_for("edit_article", article_id=article.id) }}">Edit</a>
+        {% endif %}
+    </div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                {% if category=="message" %}
+                    <div class="alert alert-primary" role="alert">
+                        {{ message }}
+                    </div>
+                {% else %}
+                    <div class="alert alert-{{ category }}" role="alert">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <!-- End Article meta data -->
+    <!-- Start Social Media Share Options -->
+    <div>
+        <div class="mt-social-links">
+            <ul class="mt-social-links__list horizontal">
+
+                <li class="mt-social-links__item">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ url_for("article", article_id=article_id) }}&t={{ article.subject }}"
+                       target="_blank" rel="noopener noreferrer" class="mt-social-links__link">
+                    <span class="mt-social-links__text">
+                        <svg viewBox="0 0 32 32" class="icon-facebook" xmlns="http://www.w3.org/2000/svg"
+                             focusable="false">
+                            <path d="M22 5.16c-.406-.054-1.806-.16-3.43-.16-3.4 0-5.733 1.825-5.733 5.17v2.882H9v3.913h3.837V27h4.604V16.965h3.823l.587-3.913h-4.41v-2.5c0-1.123.347-1.903 2.198-1.903H22V5.16z"
+                                  fill-rule="evenodd"></path>
+                        </svg>
+                        <span class="screen-reader-text">
+                            Share on Facebook (opens new window)
+                        </span>
+                    </span>
+                    </a>
+                </li>
+                <li class="mt-social-links__item">
+                    <a href="https://twitter.com/share?text={{ article.subject }}&url={{ url_for("article", article_id=article_id) }}"
+                       target="_blank"
+                       rel="noopener noreferrer" class="mt-social-links__link">
+                    <span class="mt-social-links__text">
+                        <svg viewBox="0 0 32 32" class="icon-twitter" xmlns="http://www.w3.org/2000/svg"
+                             focusable="false">
+                            <path d="M27.996 10.116c-.81.36-1.68.602-2.592.71a4.526 4.526 0 0 0 1.984-2.496 9.037 9.037 0 0 1-2.866 1.095 4.513 4.513 0 0 0-7.69 4.116 12.81 12.81 0 0 1-9.3-4.715 4.49 4.49 0 0 0-.612 2.27 4.51 4.51 0 0 0 2.008 3.755 4.495 4.495 0 0 1-2.044-.564v.057a4.515 4.515 0 0 0 3.62 4.425 4.52 4.52 0 0 1-2.04.077 4.517 4.517 0 0 0 4.217 3.134 9.055 9.055 0 0 1-5.604 1.93A9.18 9.18 0 0 1 6 23.85a12.773 12.773 0 0 0 6.918 2.027c8.3 0 12.84-6.876 12.84-12.84 0-.195-.005-.39-.014-.583a9.172 9.172 0 0 0 2.252-2.336"
+                                  fill-rule="evenodd"></path>
+                        </svg>
+                        <span class="screen-reader-text">
+                            Share on Twitter (opens new window)
+                        </span>
+                    </span>
+                    </a>
+                </li>
+                <li class="mt-social-links__item">
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ url_for("article", article_id=article_id) }}&title={{ article.subject }}"
+                       target="_blank" rel="noopener noreferrer" class="mt-social-links__link">
+                    <span class="mt-social-links__text">
+                        <svg viewBox="0 0 32 32" class="icon-linkedin" xmlns="http://www.w3.org/2000/svg"
+                             focusable="false">
+                            <path d="M26 25.963h-4.185v-6.55c0-1.56-.027-3.57-2.175-3.57-2.18 0-2.51 1.7-2.51 3.46v6.66h-4.182V12.495h4.012v1.84h.058c.558-1.058 1.924-2.174 3.96-2.174 4.24 0 5.022 2.79 5.022 6.417v7.386zM8.23 10.655a2.426 2.426 0 0 1 0-4.855 2.427 2.427 0 0 1 0 4.855zm-2.098 1.84h4.19v13.468h-4.19V12.495z"
+                                  fill-rule="evenodd"></path>
+                        </svg>
+                        <span class="screen-reader-text">
+                            Share on LinkedIn (opens new window)
+                        </span>
+                    </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- End Social Media Share Options -->
+    <!-- Start Article Content -->
+    <article class="border-dark-subtle border-top border-bottom mt-3 mb-3 pt-2 pb-2">
+        {{ article_content }}
+    </article>
+    <!-- End Article Content -->
+    <div></div>
+
+    <h2 class="mb-3">Comments</h2>
+
+    <!-- Start Comment Form -->
+    {% if current_user.is_authenticated %}
+        <form class="form-control mb-3"
+              method="post"
+              action="{{ url_for("new_comment", article_id=article.id) }}">
+            <h5 class="mb-3">Leave your comment...</h5>
+            <div>
+            <textarea class="form-control mb-3"
+                      type="text" name="content"
+                      placeholder="Leave your comment for this article here"></textarea>
+            </div>
+            <input class="btn btn-primary" type="submit" value="Submit"/>
+        </form>
+    {% else %}
+        <b>To leave a comment, please <a href="{{ url_for("login") }}">Login</a></b>
+    {% endif %}
+    <!-- End Comment Form -->
+    <!-- Start Comments List -->
+    <div class="list-group w-auto">
+        {% if article.comments is undefined or article.comments|length == 0 %}
+            <b>There is no comments on this article.</b>
+        {% else %}
+            {% for comment in article.comments %}
+                <article class="list-group-item list-group-item-action d-flex gap-3 py-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+                        <path fill-rule="evenodd"
+                              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path>
+                    </svg>
+                    <div class="d-flex gap-2 w-100 justify-content-between">
+                        <div>
+                            <h6 class="mb-0">{{ comment.author.name }}</h6>
+                            <p class="mb-0 opacity-75" style="line-break: anywhere">{{ comment.content }}</p>
+                        </div>
+                        <div>
+                            <small class="opacity-50 text-nowrap">{{ comment.create_at.strftime( "%d-%m-%Y") }}</small>
+                            {% if current_user.is_authenticated and current_user.id == comment.author_id or current_user.id == 1 %}
+                                <form method="POST"
+                                      action="{{ url_for('delete_comment',
+                                    comment_id=comment.id) }}">
+                                    <input class="btn btn-link"
+                                           type="submit" value="Delete Comment"
+                                           onclick="return confirm('Are you sure you want to delete this comment?')">
+                                </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                </article>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <!-- End Comments List-->
+{% endblock %}

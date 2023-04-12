@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">BMI计算器</string>
+	<string name="action_settings">设置</string>
+	<string name="first_fragment_label">BMI计算</string>
+	<string name="second_fragment_label">关于BMI.</string>
+	<string name="next">下一页</string>
+	<string name="previous">前一页</string>
+	<string name="hello_first_fragment">你好第一个片段</string>
+	<string name="Bmi_Calculating_welcome">欢迎来到BMI计算器</string>
+	<string name="weight_input_intro">请输入您的体重(千克)：</string>
+	<string name="height_input_intro">请输入您的身体高度(厘米)：</string>
+	<string name="bmi_calculate_button">计算你的BMI.</string>
+	<string name="bmi_result_intro">您的BMI值是：</string>
+	<string name="hello_second_fragment">你好第二片段。 </string>
+	<string name="bmi_intro_header">什么是BMI？</string>
+	<string name="bmi_intro_content">身体质量指数(BMI，Body Mass Index)是国际上常用的衡量人体肥胖程度和是否健康的重要标准，主要用于统计分析。肥胖程度的判断不能采用体重的绝对值，它天然与身高有关。因此，BMI 通过人体体重和身高两个数值获得相对客观的参数，并用这个参数所处范围衡量身体质量。</string>
+</resources>

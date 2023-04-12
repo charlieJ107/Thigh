@@ -1,0 +1,91 @@
+# This file is a template, and might need editing before it works on your project.
+# You can copy and paste this template into a new `.gitlab-ci.yml` file.
+# You should not add this template to an existing `.gitlab-ci.yml` file by using the `include:` keyword.
+#
+# To contribute improvements to CI/CD templates, please follow the Development guide at:
+# https://docs.gitlab.com/ee/development/cicd/templates.html
+# This specific template is located at:
+# https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/OpenShift.gitlab-ci.yml
+
+image: openshift/origin-cli
+
+stages:
+  - build  # dummy stage to follow the template guidelines. The Build stage will be complete in OpenShift
+  - test
+  - deploy  # dummy stage to follow the template guidelines. This CI is to deploy project on OpenShift
+  - review
+  - staging
+  - production
+  - cleanup
+
+variables:
+  OPENSHIFT_SERVER: https://api.openshift.cs.cf.ac.uk:6443
+  OPENSHIFT_DOMAIN: apps.openshift.cs.cf.ac.uk
+
+test:
+  stage: test
+  before_script: []
+  script:
+    - echo run tests
+
+.deploy: &deploy
+  before_script:
+    - oc login "$OPENSHIFT_SERVER" --token="$OPENSHIFT_TOKEN"
+    - oc project "$CI_PROJECT_NAME" 2> /dev/null || oc new-project "$CI_PROJECT_NAME"
+  script:
+    - "oc get services $APP || oc new-app . --name=$APP --env-file=$ENV_FILE"
+    - "oc start-build $APP --from-dir=. --follow || sleep 3s && oc start-build $APP --from-dir=. --follow"
+    - "oc get routes $APP || oc expose service $APP --hostname=$APP_HOST"
+
+review:
+  <<: *deploy
+  stage: review
+  variables:
+    APP: review-$CI_COMMIT_REF_NAME
+    APP_HOST: $CI_PROJECT_NAME-$CI_ENVIRONMENT_SLUG.$OPENSHIFT_DOMAIN
+  environment:
+    name: review/$CI_COMMIT_REF_NAME
+    url: https://$CI_PROJECT_NAME-$CI_ENVIRONMENT_SLUG.$OPENSHIFT_DOMAIN
+    on_stop: stop-review
+  rules:
+    - if: $CI_COMMIT_BRANCH && $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
+
+stop-review:
+  <<: *deploy
+  stage: cleanup
+  script:
+    - oc delete all -l "app=$APP"
+  variables:
+    APP: review-$CI_COMMIT_REF_NAME
+    GIT_STRATEGY: none
+  environment:
+    name: review/$CI_COMMIT_REF_NAME
+    action: stop
+  rules:
+    - if: $CI_COMMIT_BRANCH && $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
+      when: manual
+
+staging:
+  <<: *deploy
+  stage: staging
+  variables:
+    APP: staging
+    APP_HOST: $CI_PROJECT_NAME-staging.$OPENSHIFT_DOMAIN
+  environment:
+    name: staging
+    url: http://$CI_PROJECT_NAME-staging.$OPENSHIFT_DOMAIN
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+production:
+  <<: *deploy
+  stage: production
+  variables:
+    APP: production
+    APP_HOST: $CI_PROJECT_NAME.$OPENSHIFT_DOMAIN
+  environment:
+    name: production
+    url: http://$CI_PROJECT_NAME.$OPENSHIFT_DOMAIN
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: manual

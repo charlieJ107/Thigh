@@ -1,0 +1,357 @@
+.social-footer-wrap--mt {
+    background: #e3e3e3;
+}
+
+.social-footer-wrap .mt-social-profiles p {
+    color: #000;
+    display: block;
+    float: none;
+    font-size: 16px;
+    margin: 2px 12px 5px 0;
+}
+
+@media screen and (min-width: 768px) {
+
+    .social-footer-wrap .mt-social-profiles p {
+        display: inline-block;
+        float: left
+    }
+}
+
+.social-footer-wrap .mt-social-profiles.f-horizontal ul > li {
+    float: left;
+}
+
+    .social-footer-wrap .mt-social-profiles.f-horizontal ul > li > a {
+        display: inline-block;
+        margin-right: 2px;
+    }
+
+.social-footer-wrap .mt-social-profiles > ul > li > a {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    transition: scale 0.2s ease-in-out;
+}
+
+    .social-footer-wrap .mt-social-profiles > ul > li > a:focus {
+        outline: 2px solid #000;
+    }
+
+        .social-footer-wrap .mt-social-profiles > ul > li > a:focus:before, .social-footer-wrap .mt-social-profiles > ul > li > a:hover:before, .social-footer-wrap .mt-social-profiles > ul > li > a:active:hover:before {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+    .social-footer-wrap .mt-social-profiles > ul > li > a:active {
+        -webkit-transform: scale(0.98);
+        transform: scale(0.98);
+    }
+
+    .social-footer-wrap .mt-social-profiles > ul > li > a:before {
+        background: none;
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .social-footer-wrap .mt-social-profiles > ul > li > a > img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .social-footer-wrap .mt-social-profiles > ul > li > a.x-hidden-focus {
+        outline: 0;
+    }
+
+.social-footer-wrap .mt-social-profiles a {
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.social-footer-wrap .mt-social-profiles.f-horizontal ul > li > a[title="RSS Subscription"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Variables */
+
+:root {
+    --color-white: #fff;
+    --color-facebook: #3b5998;
+    --color-twitter: #1da1f2;
+    --color-linkedin: #0077B5;
+    --color-pinterest: #c92228;
+    --color-flipboard: #f52828;
+    --color-reddit: #ff4500;
+    --color-hackernews: #f60;
+}
+
+/* Mixins */
+
+.mt-social-links {
+    display: none;
+}
+
+@media (min-width: 768px) {
+
+    .mt-social-links {
+        display: block
+    }
+}
+
+.mt-social-links .mt-social-links__list {
+    display: flex;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+}
+
+@media (min-width: 1235px) {
+
+    .mt-social-links .mt-social-links__list {
+        display: block
+    }
+}
+
+.mt-social-links .mt-social-links__item {
+    display: block;
+    margin: 15px 5px 0 0;
+    width: 48px;
+}
+
+@media (min-width: 1235px) {
+
+    .mt-social-links .mt-social-links__item {
+        margin: 0 auto 5px
+    }
+}
+
+.mt-social-links .mt-social-links__link {
+    display: block;
+    padding: 6px 12px;
+    /*
+		* generate space to properly display the outline for active and focused states
+		* important to override old c-social style
+		*/
+    margin: 1px !important;
+    text-decoration: none;
+    height: 48px;
+    width: 48px;
+    position: relative;
+    text-align: center;
+}
+
+    .mt-social-links .mt-social-links__link[href*="facebook"] {
+        background-color: #3b5998;
+        background-color: #3b5998;
+        background-color: var(--color-facebook);
+        color: #fff;
+        color: #fff;
+        color: var(--color-white);
+        transition: background-color linear .2s;
+    }
+
+        .mt-social-links .mt-social-links__link[href*="facebook"]:hover,
+        .mt-social-links .mt-social-links__link[href*="facebook"]:focus,
+        .mt-social-links .mt-social-links__link[href*="facebook"]:active {
+            background: rgb(50, 76, 129) !important;
+            background: rgb(50, 76, 129) !important;
+            background: rgb(50, 76, 129) !important;
+        }
+
+        .mt-social-links .mt-social-links__link[href*="facebook"]:focus,
+        .mt-social-links .mt-social-links__link[href*="facebook"]:active {
+            outline: 1px dashed #000 !important;
+        }
+
+    .mt-social-links .mt-social-links__link[href*="twitter"] {
+        background-color: #1da1f2;
+        background-color: #1da1f2;
+        background-color: var(--color-twitter);
+        color: #fff;
+        color: #fff;
+        color: var(--color-white);
+        transition: background-color linear .2s;
+    }
+
+        .mt-social-links .mt-social-links__link[href*="twitter"]:hover,
+        .mt-social-links .mt-social-links__link[href*="twitter"]:focus,
+        .mt-social-links .mt-social-links__link[href*="twitter"]:active {
+            background: rgb(25, 137, 206) !important;
+            background: rgb(25, 137, 206) !important;
+            background: rgb(25, 137, 206) !important;
+        }
+
+        .mt-social-links .mt-social-links__link[href*="twitter"]:focus,
+        .mt-social-links .mt-social-links__link[href*="twitter"]:active {
+            outline: 1px dashed #000 !important;
+        }
+
+    .mt-social-links .mt-social-links__link[href*="linkedin"] {
+        background-color: #0077B5;
+        background-color: #0077B5;
+        background-color: var(--color-linkedin);
+        color: #fff;
+        color: #fff;
+        color: var(--color-white);
+        transition: background-color linear .2s;
+    }
+
+        .mt-social-links .mt-social-links__link[href*="linkedin"]:hover,
+        .mt-social-links .mt-social-links__link[href*="linkedin"]:focus,
+        .mt-social-links .mt-social-links__link[href*="linkedin"]:active {
+            background: rgb(0, 101, 154) !important;
+            background: rgb(0, 101, 154) !important;
+            background: rgb(0, 101, 154) !important;
+        }
+
+        .mt-social-links .mt-social-links__link[href*="linkedin"]:focus,
+        .mt-social-links .mt-social-links__link[href*="linkedin"]:active {
+            outline: 1px dashed #000 !important;
+        }
+
+    .mt-social-links .mt-social-links__link[href*="pinterest"] {
+        background-color: #c92228;
+        background-color: #c92228;
+        background-color: var(--color-pinterest);
+        color: #fff;
+        color: #fff;
+        color: var(--color-white);
+        transition: background-color linear .2s;
+    }
+
+        .mt-social-links .mt-social-links__link[href*="pinterest"]:hover,
+        .mt-social-links .mt-social-links__link[href*="pinterest"]:focus,
+        .mt-social-links .mt-social-links__link[href*="pinterest"]:active {
+            background: rgb(171, 29, 34) !important;
+            background: rgb(171, 29, 34) !important;
+            background: rgb(171, 29, 34) !important;
+        }
+
+        .mt-social-links .mt-social-links__link[href*="pinterest"]:focus,
+        .mt-social-links .mt-social-links__link[href*="pinterest"]:active {
+            outline: 1px dashed #000 !important;
+        }
+
+    .mt-social-links .mt-social-links__link[href*="flipboard"] {
+        background-color: #f52828;
+        background-color: #f52828;
+        background-color: var(--color-flipboard);
+        color: #fff;
+        color: #fff;
+        color: var(--color-white);
+        transition: background-color linear .2s;
+    }
+
+        .mt-social-links .mt-social-links__link[href*="flipboard"]:hover,
+        .mt-social-links .mt-social-links__link[href*="flipboard"]:focus,
+        .mt-social-links .mt-social-links__link[href*="flipboard"]:active {
+            background: rgb(208, 34, 34) !important;
+            background: rgb(208, 34, 34) !important;
+            background: rgb(208, 34, 34) !important;
+        }
+
+        .mt-social-links .mt-social-links__link[href*="flipboard"]:focus,
+        .mt-social-links .mt-social-links__link[href*="flipboard"]:active {
+            outline: 1px dashed #000 !important;
+        }
+
+    .mt-social-links .mt-social-links__link[href*="reddit"] {
+        background-color: #ff4500;
+        background-color: #ff4500;
+        background-color: var(--color-reddit);
+        color: #fff;
+        color: #fff;
+        color: var(--color-white);
+        transition: background-color linear .2s;
+    }
+
+        .mt-social-links .mt-social-links__link[href*="reddit"]:hover,
+        .mt-social-links .mt-social-links__link[href*="reddit"]:focus,
+        .mt-social-links .mt-social-links__link[href*="reddit"]:active {
+            background: rgb(217, 59, 0) !important;
+            background: rgb(217, 59, 0) !important;
+            background: rgb(217, 59, 0) !important;
+        }
+
+        .mt-social-links .mt-social-links__link[href*="reddit"]:focus,
+        .mt-social-links .mt-social-links__link[href*="reddit"]:active {
+            outline: 1px dashed #000 !important;
+        }
+
+    .mt-social-links .mt-social-links__link[href*="ycombinator"] {
+        background-color: #f60;
+        background-color: #f60;
+        background-color: var(--color-hackernews);
+        color: #fff;
+        color: #fff;
+        color: var(--color-white);
+        transition: background-color linear .2s;
+    }
+
+        .mt-social-links .mt-social-links__link[href*="ycombinator"]:hover,
+        .mt-social-links .mt-social-links__link[href*="ycombinator"]:focus,
+        .mt-social-links .mt-social-links__link[href*="ycombinator"]:active {
+            background: rgb(217, 87, 0) !important;
+            background: rgb(217, 87, 0) !important;
+            background: rgb(217, 87, 0) !important;
+        }
+
+        .mt-social-links .mt-social-links__link[href*="ycombinator"]:focus,
+        .mt-social-links .mt-social-links__link[href*="ycombinator"]:active {
+            outline: 1px dashed #000 !important;
+        }
+
+/* Style hook into the text */
+
+.mt-social-links .mt-social-links__text svg {
+    fill: #fff;
+    position: absolute;
+    top: 50%;
+    width: 24px;
+    height: 24px;
+    bottom: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+/* Horizontal Layout */
+
+.mt-social-links .mt-social-links__list.horizontal {
+    padding: 0;
+    margin-top: 10px;
+}
+
+    .mt-social-links .mt-social-links__list.horizontal .mt-social-links__item {
+        display: inline-block;
+        margin: 0 5px 0 0;
+        padding: 0;
+        width: 34px;
+        height: 34px;
+    }
+
+        .mt-social-links .mt-social-links__list.horizontal .mt-social-links__item:last-child {
+            margin-right: 0;
+        }
+
+    .mt-social-links .mt-social-links__list.horizontal .mt-social-links__link {
+        width: 32px;
+        height: 32px;
+        margin: 1px; /* generate space to properly display the outline for active and focused states */
+    }
+
+.screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+
+/*# sourceMappingURL=microsoft-social-sharing.css.map */

@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">BMI Calculator</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">BMI Calculating</string>
+    <string name="second_fragment_label">About BMI</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <!-- string used for first fragment that calculate the bmi -->
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="Bmi_Calculating_welcome">Welcome to BMI Calculator</string>
+    <string name="weight_input_intro">Please enter your Body Weight(Kg):</string>
+    <string name="height_input_intro">Please enter your Body Height(cm):</string>
+    <string name="bmi_calculate_button">Calculate your BMI</string>
+    <string name="bmi_result_intro">Your BMI value is:</string>
+
+    <!-- String used for second fragment that introducing what is bmi -->
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="bmi_intro_header">What is BMI?</string>
+    <string name="bmi_intro_content">BMI (Body Mass Index) is an important standard commonly used to measure the degree of obesity and health in the world, which is mainly used for statistical analysis. The degree of obesity can not be judged by the absolute value of weight, it is naturally related to height. Therefore, BMI obtains relatively objective parameters from the two values of body weight and height, and uses the range of this parameter to measure body mass.</string>
+</resources>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Shannon</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1 id="website-header">
+            <a href="./index.html" id="website-title">Computational Thinking</a>
+        </h1>
+        <span id="website-description">By Zhuoling Jiang</span>
+        <div id="space"></div>
+    </header>
+    <main>
+        <article class="full-article">
+            <h1 class="headline">Claude Shannon</h1>
+            <span class="subtitle">A scientist, a mathematician and an engineer</span>
+            <div class="title-img-container">
+                <img class="title-img" src="image/Claude-Shannon_2880_Lede.jpg">
+                <span class="img-source">Estate of Francis Bello / Science Source</span>
+            </div>
+            <div class="divider"></div>
+            <div class="article-block">
+                <p class="reference">
+                    Science seeks the basic laws of nature. Mathematics searches for new theorems to build upon the old.
+                    Engineering builds systems to solve human needs. The three disciplines are interdependent but
+                    distinct. Very rarely does one individual simultaneously make central contributions to all three —
+                    but Claude Shannon was a rare individual.
+                </p>
+            </div>
+            <div class="article-block">
+                <p class="normal beginning">
+                    Shannon was born in Gaylord, Michigan, in 1916, his parents are a local businessman and a teacher.
+                    After earning a double bachelor's degree in electrical engineering and mathematics from the
+                    University of Michigan, Shannon entered the Massachusetts Institute of Technology and began her
+                    graduate studies.
+                </p>
+            </div>
+            <div class="article-block">
+                <p class="normal">
+                    In his master thesis, he applied the mathematical method of Boolean algebra to the analysis and
+                    synthesis of switching circuits in the electronic field. At the time, electromagnetic relays were
+                    used to build circuits that routed telephone calls or controlled complex machines. However, The way
+                    people thought about them was in terms of the relay coils being energized or not. And there was no
+                    consistent theory on how to design or analyze such circuits. Shannon used Boolean algebra of logic
+                    to analyze, and then synthesize, switching circuits and to prove that the overall circuit worked as
+                    desired. And he invented the AND, OR, and NOT logic gates, upon wich the entire edifice of computer
+                    science is based.
+                </p>
+            </div>
+            <div class="article-block">
+                <p class="normal">
+                    His most frequently mentioned achievement is information theory, which he calls "grand unified
+                    theory for communication" in a letter to his mentor in in 1939. The core of the theory proposed by
+                    Shannon is a simple but universal communication model: the transmitter encodes the information into
+                    a signal, which is affected by noise and then decoded by the receiver. Although the model is simple,
+                    it contains two key elements: the signal source and noise source are separated from the
+                    communication system to be designed, and the probabilistic modeling of the two sources is carried
+                    out respectively.
+                </p>
+            </div>
+            <div class="article-img-contianer">
+                <img id="shannon-communication" src="./image/Shannon-Communication_v1.jpg">
+                <span class="img-source">A schematic diagram of Shannon’s model of communication, as taken from his
+                    paper.
+                    <span>From: The Bell System Technical Journal</span>
+                </span>
+            </div>
+            <div class="article-block">
+                <p class="normal">
+                    Shannon creatively applied probability to the measurement of information, transforming the
+                    communication problem from a physical problem to a mathematical problem. This is quite different
+                    from the previous common method of treating the communication problem as the reconstruction problem
+                    of deterministic signals. It is this assumption that allows Shannon to use probability to model
+                    uncertainty.
+                    And uncertainty is the charm of communication.
+                </p>
+                <p class="reference">
+                    "After all, if you knew ahead of time what I would say to you in this column, what would be the
+                    point of writing it?"
+                </p>
+            </div>
+            <div class="article-block">
+                <p class="normal">
+                    Shannon gave a formula for the minimum number of bits per second to represent the information, a
+                    number he called its entropy rate, <span class="formular">H</span> Then he provide a formula for the
+                    maximum number of bits per
+                    second that can be reliably communicated in the face of noise, which he called the system’s
+                    capacity, <span class="formular">C</span>. Finally, he showed that reliable communication of the
+                    information from the source in
+                    the face of noise is possible if and only if <span class="formular">H &lt C </span>While this is a
+                    theory of communication, it
+                    is, at the same time, a theory of how information is produced and transferred — an information
+                    theory. Thus Shannon is now considered
+                    “the father of information theory.” </p>
+            </div>
+            <div class="article-block">
+                <p class="normal">
+                    Shannon's theory drew some conclusions, which directly led to the development of the whole
+                    communication field. The 5G technology we use today is the two sets of coding methods proposed by
+                    people after continuous exploration, which can get fast communication at the same time of given
+                    reliability, so as to reach the theoretical speed limit.
+                </p>
+            </div>
+            <div class="article-block">
+                <p class="normal">
+                    Shannon is a scientist, whose theory is as fundamental as the laws of physics; Shannon is also a
+                    mathematician, who has created new mathematical concepts to explain communication principles, and
+                    these ideas have been widely used in other branches of mathematics; Shannon is even an engineer,
+                    whose theory is inspired by practical engineering problems, and this theory has become the basic
+                    framework of modern communication systems.
+                </p>
+            </div>
+        </article>
+        <section class="reference-section article-block">
+            <h2 class="references-title">References</h2>
+            <p class="reference-item">
+                1. Tse D. How Claude Shannon Invented the Future. 2020 [accessed. Available from:
+                https://www.quantamagazine.org/how-claude-shannons-information-theory-invented-the-future-20201222/
+            </p>
+            <p class="reference-item">
+                2. Shannon CE. A symbolic analysis of relay and switching circuits. Electrical Engineering.
+                1938;57(12):713-23. doi: 10.1109/EE.1938.6431064
+            </p>
+            <p class="reference-item">
+                3. Shannon CE. A mathematical theory of communication. The Bell System Technical Journal.
+                1948;27(3):379-423. doi: 10.1002/j.1538-7305.1948.tb01338.x
+            </p>
+        </section>
+        <div class="divider"></div>
+        <footer>
+            <section class="license">
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+                    <img alt="Creative Commons License" style="border-width:0"
+                        src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+                </a>
+                <br />
+                This work is licensed under a
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+                    Creative Commons Attribution-ShareAlike 4.0 International License
+                </a>.
+            </section>
+        </footer>
+    </main>
+</body>
+
+</html>

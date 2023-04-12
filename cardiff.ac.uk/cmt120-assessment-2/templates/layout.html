@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Zhuoling</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/site.css"/>
+    <script src="/static/js/modernizr-2.6.2.js"></script>
+    {% block page_head %}{% endblock %}
+</head>
+
+<body>
+<header class="p-3 bg-white">
+    <nav class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none me-3 fs-5">What
+                Remains on Zhuoling</a>
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a class="nav-link px-2 {{ "text_secondary" if active_page == "Home" else "text-dark" }}"
+                       href="{{ url_for('home') }}">Home</a></li>
+                <li><a class="nav-link px-2 {{ "text_secondary" if active_page == "About" else "text-dark" }}"
+                       href="{{ url_for('about') }}">About</a></li>
+                <li><a class="nav-link px-2 {{ "text_secondary" if active_page == "Contact" else "text-dark" }}"
+                       href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+            <form class="d-flex mb-lg-0 me-3"
+                  role="search">
+                <input type="search" class="form-control w-100" placeholder="Search..." aria-label="Search">
+            </form>
+            <div class="text-end">
+                {% if  current_user.is_authenticated %}
+                    <span>Hello, {{ current_user.name }}</span>
+                    <a class="btn btn-outline-primary" href="{{ url_for("logout") }}">Logout</a>
+                {% else %}
+                    <a class="btn btn-outline-primary me-2" href="{{ url_for("login") }}">Login</a>
+                    <a class="btn btn-warning" href="{{ url_for("signup") }}">Sign-up</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="container">
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="container">
+    <hr/>
+    <p>&copy; {{ year }} - Zhuoling Jiang</p>
+</footer>
+<script src="/static/js/jquery-1.10.2.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+<script src="/static/js/respond.js"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>
