@@ -1,0 +1,15 @@
+Algorithms are one of the four cornerstones of Computer Science. An algorithm is a plan, a set of step-by-step instructions to solve a problem. If you can tie shoelaces, make a cup of tea, get dressed or prepare a meal then you already know how to follow an algorithm.
+
+In an algorithm, each instruction is identified and the order in which they should be carried out is planned. Algorithms are often used as a starting point for creating a computer program, and they are sometimes written as a flowchart or in pseudocode. 
+If we want to tell a computer to do something, we have to write a computer program that will tell the computer, step-by-step, exactly what we want it to do and how we want it to do it. This step-by-step program will need planning, and to do this we use an algorithm. 
+
+Computers are only as good as the algorithms they are given. If you give a computer a poor algorithm, you will get a poor result – hence the phrase: ‘Garbage in, garbage out.’ Algorithms are used for many different things including calculations, data processing and automation.
+
+It is important to plan out the solution to a problem to make sure that it will be correct. Using computational thinking and decomposition we can break down the problem into smaller parts and then we can plan out how they fit back together in a suitable order to solve the problem. This order can be represented as an algorithm. An algorithm must be clear. It must have a starting point, a finishing point and a set of clear instructions in between.
+
+There are two main ways that algorithms can be represented – pseudocode and flowcharts. Most programs are developed using programming languages. These languages have specific syntax that must be used so that the program will run properly. Pseudocode is not a programming language, it is a simple way of describing a set of instructions that does not have to use specific syntax.
+
+Writing in pseudocode is similar to writing in a programming language. Each step of the algorithm is written on a line of its own in sequence. Usually, instructions are written in uppercase, variables in lowercase and messages in sentence case. 
+In pseudocode, INPUT asks a question. OUTPUT prints a message on screen.
+
+A flowchart is a diagram that represents a set of instructions. Flowcharts normally use standard symbols to represent the different instructions. There are few real rules about the level of detail needed in a flowchart. Sometimes flowcharts are broken down into many steps to provide a lot of detail about exactly what is happening. Sometimes they are simplified so that a number of steps occur in just one step.
