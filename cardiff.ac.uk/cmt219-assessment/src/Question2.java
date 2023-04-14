@@ -10,14 +10,6 @@ public class Question2 {
      *             words in file "google-10000-english.txt"
      * @return An ArrayList that contains all the words that are matching the words
      *         in file "google-10000-english.txt" in alphabetical order.
-     * @details
-     *          1. Define a function to split the ArrayList into two ArrayLists.
-     *          1.1. Create a new ArrayList to store the left half of the ArrayList.
-     *          1.2. Create a new ArrayList to store the right half of the
-     *          ArrayList.
-     *          1.3. Add the left half of the ArrayList into the new ArrayList.
-     *          1.4. Add the right half of the ArrayList into the new ArrayList.
-     *          1.5. Return the new ArrayList.
      */
     public static ArrayList<String> MergeSort(List<String> list, ICounter counter) {
         // If the ArrayList only contains one element, return the ArrayList.

@@ -7,8 +7,7 @@ public class Main {
         //////////////////// Question 1 /////////////////////////
         /////////////////////////////////////////////////////////
         // Create a new ArrayList to store the words that are matching the words in file "google-10000-english.txt"
-        ArrayList<String> newWords = new ArrayList<String>();
-        newWords = Question1.ExtractWords(newWords);
+        ArrayList<String> newWords = Question1.ExtractWords();
         // Print the words in the ArrayList.
         for (String word : newWords) {
             System.out.println(word);
@@ -25,6 +24,7 @@ public class Main {
         // Sort the words in the newWords ArrayList into alphabetical order.
         ArrayList<String> sorted_full = Question2.MergeSort(newWords, counter);
         // Print the words in the ArrayList.
+        System.out.println("The words in the newWords ArrayList are:");
         for (String word : sorted_full) {
             System.out.println(word);
         }        
@@ -42,6 +42,7 @@ public class Main {
         // Print the number of comparisons.
         System.out.println("There are " + counter.getCount() + " comparisons.");
         // Print the words in the ArrayList.
+        System.out.println("The first 100 words in the newWords ArrayList are:");
         for (String word : sorted_100) {
             System.out.println(word);
         }
@@ -60,6 +61,7 @@ public class Main {
         // Print the number of comparisons.
         System.out.println("There are " + counter.getCount() + " comparisons.");
         // Print the words in the ArrayList.
+        System.out.println("The first 200 words in the newWords ArrayList are:");
         for (String word : sorted_200) {
             System.out.println(word);
         }
@@ -78,6 +80,7 @@ public class Main {
         // Print the number of comparisons.
         System.out.println("There are " + counter.getCount() + " comparisons.");   
         // Print the words in the ArrayList.
+        System.out.println("The first 300 words in the newWords ArrayList are:");
         for (String word : sorted_300) {
             System.out.println(word);
         }

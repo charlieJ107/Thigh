@@ -19,7 +19,8 @@ public class Question1 {
      *  3.4. Repeat step 3.1 to 3.3 until all the words in the ArrayList are checked.
      * 4. Return the new ArrayList.
      */
-    public static ArrayList<String> ExtractWords(ArrayList<String> newWords) {
+    public static ArrayList<String> ExtractWords() {
+        ArrayList<String> newWords = new ArrayList<String>();
         try {
             // Open the file "Input219.txt" and extract all words into an ArrayList.
             File input = new File("./Input219.txt");
@@ -37,14 +38,14 @@ public class Question1 {
             scan = new Scanner(google);
             ArrayList<String> googleWords = new ArrayList<String>();
             while (scan.hasNext()) {
-                googleWords.add(scan.next());
+                googleWords.add(scan.next().toLowerCase());
             }
             scan.close();
             // Check the word in the ArrayList and add the word into a new ArrayList if it
             // is matching the
             // words in file "google-10000-english.txt"
             for (String word : words) {
-                if (googleWords.contains(word)) {
+                if (googleWords.contains(word.toLowerCase())) {
                     newWords.add(word);
                 }
             }
