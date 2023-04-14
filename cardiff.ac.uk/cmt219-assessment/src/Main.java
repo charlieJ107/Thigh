@@ -41,6 +41,10 @@ public class Main {
         System.out.println("It takes " + (endTime - startTime) + " nanoseconds to sort the first 100 words in the newWords ArrayList into alphabetical order.");
         // Print the number of comparisons.
         System.out.println("There are " + counter.getCount() + " comparisons.");
+        // Print the words in the ArrayList.
+        for (String word : sorted_100) {
+            System.out.println(word);
+        }
 
         // Reset the counter.
         counter.reset();
@@ -55,6 +59,10 @@ public class Main {
         System.out.println("It takes " + (endTime - startTime) + " nanoseconds to sort the first 200 words in the newWords ArrayList into alphabetical order.");
         // Print the number of comparisons.
         System.out.println("There are " + counter.getCount() + " comparisons.");
+        // Print the words in the ArrayList.
+        for (String word : sorted_200) {
+            System.out.println(word);
+        }
 
         // Reset the counter.
         counter.reset();
@@ -68,17 +76,12 @@ public class Main {
         // Print the time it takes to sort the first 300 words in the newWords ArrayList into alphabetical order.
         System.out.println("It takes " + (endTime - startTime) + " nanoseconds to sort the first 300 words in the newWords ArrayList into alphabetical order.");
         // Print the number of comparisons.
-        System.out.println("There are " + counter.getCount() + " comparisons.");
-
-        // Reset the counter.
-        counter.reset();
-        
-
+        System.out.println("There are " + counter.getCount() + " comparisons.");   
+        // Print the words in the ArrayList.
+        for (String word : sorted_300) {
+            System.out.println(word);
+        }
         // End of Question 2
-
-        /////////////////////////////////////////////////////////
-        //////////////////// Question 3 /////////////////////////
-        /////////////////////////////////////////////////////////
     }
 
 }
