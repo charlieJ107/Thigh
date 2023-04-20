@@ -68,6 +68,7 @@ public class Question2 {
                 counter.increment();
                 if (left.get(0).compareTo(right.get(0)) <= 0) {
                     // Count the number of comparisons.
+                    counter.increment();
                     
                     // Add the first element of the left ArrayList into the new ArrayList.
                     result.add(left.get(0));

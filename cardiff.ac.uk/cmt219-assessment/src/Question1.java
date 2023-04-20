@@ -26,6 +26,8 @@ public class Question1 {
             File input = new File("./Input219.txt");
             Scanner scan;
             scan = new Scanner(input);
+            // TODO: use regex to split the words instead of using the next() method.
+            // TODO: Consider ungly input like "I'm" and "I'm."
             ArrayList<String> words = new ArrayList<String>();
             while (scan.hasNext()) {
                 words.add(scan.next());
