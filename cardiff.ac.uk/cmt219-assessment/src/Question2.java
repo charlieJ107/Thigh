@@ -11,7 +11,7 @@ public class Question2 {
      * @return An ArrayList that contains all the words that are matching the words
      *         in file "google-10000-english.txt" in alphabetical order.
      */
-    public static ArrayList<String> MergeSort(List<String> list, ICounter counter) {
+    public static ArrayList<String> MergeSort(List<String> list, ICounter comparisonsCounter, ICounter movesCounter) {
         // If the ArrayList only contains one element, return the ArrayList.
         if (list.size() <= 1) {
             return new ArrayList<String>(list);
@@ -23,11 +23,11 @@ public class Question2 {
         ArrayList<String> left = new ArrayList<String>(list.subList(0, middle));
         ArrayList<String> right = new ArrayList<String>(list.subList(middle, list.size()));
         // Sort the left half of the ArrayList.
-        left = MergeSort(left, counter);
+        left = MergeSort(left, comparisonsCounter, movesCounter);
         // Sort the right half of the ArrayList.
-        right = MergeSort(right, counter);
+        right = MergeSort(right, comparisonsCounter, movesCounter);
         // Merge the left half of the ArrayList and the right half of the ArrayList.
-        ArrayList<String> result = merge(left, right, counter);
+        ArrayList<String> result = merge(left, right, comparisonsCounter, movesCounter);
         // Return the new ArrayList.
         return result;
     }
@@ -40,7 +40,7 @@ public class Question2 {
      * @return An ArrayList that contains the left half of the ArrayList and the
      *         right half of the ArrayList.
      */
-    private static ArrayList<String> merge(List<String> left, List<String> right, ICounter counter) {
+    private static ArrayList<String> merge(List<String> left, List<String> right, ICounter comparisonsCounter, ICounter movesCounter) {
         // Create a new ArrayList to store the result.
         ArrayList<String> result = new ArrayList<String>();
         
@@ -51,7 +51,7 @@ public class Question2 {
         while (i < left.size() && j < right.size()) {
             // Iterate through the left and right halves, respectively, of the input arrays. 
             // Count the number of comparisons.
-            counter.increment();
+            comparisonsCounter.increment();
             if (left.get(i).compareToIgnoreCase(right.get(j)) <= 0) { // Case insensitive comparison.
                 // If the element in the left ArrayList is smaller than the element in the right ArrayList,
                 result.add(left.get(i));
@@ -60,17 +60,20 @@ public class Question2 {
                 result.add(right.get(j));
                 j++;
             }
-            counter.increment();
+            comparisonsCounter.increment();
+            movesCounter.increment();
         }
         while (i < left.size()) {
             result.add(left.get(i));
             i++;
-            counter.increment();
+            comparisonsCounter.increment();
+            movesCounter.increment();
         }
         while (j < right.size()) {
             result.add(right.get(j));
             j++;
-            counter.increment();
+            comparisonsCounter.increment();
+            movesCounter.increment();
         }
         // Return the new ArrayList.
         return result;
