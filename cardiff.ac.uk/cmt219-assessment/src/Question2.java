@@ -16,19 +16,12 @@ public class Question2 {
         if (list.size() <= 1) {
             return new ArrayList<String>(list);
         }
-        // Split the ArrayList into two ArrayLists.
-        ArrayList<String> left = new ArrayList<String>();
-        ArrayList<String> right = new ArrayList<String>();
+
         // Find the middle of the ArrayList.
         int middle = list.size() / 2;
-        // Add the left half of the ArrayList into the new ArrayList.
-        for (int i = 0; i < middle; i++) {
-            left.add(list.get(i));
-        }
-        // Add the right half of the ArrayList into the new ArrayList.
-        for (int i = middle; i < list.size(); i++) {
-            right.add(list.get(i));
-        }
+        // Split the ArrayList into two ArrayLists.
+        ArrayList<String> left = new ArrayList<String>(list.subList(0, middle));
+        ArrayList<String> right = new ArrayList<String>(list.subList(middle, list.size()));
         // Sort the left half of the ArrayList.
         left = MergeSort(left, counter);
         // Sort the right half of the ArrayList.
@@ -50,58 +43,34 @@ public class Question2 {
     private static ArrayList<String> merge(List<String> left, List<String> right, ICounter counter) {
         // Create a new ArrayList to store the result.
         ArrayList<String> result = new ArrayList<String>();
-        // Add the left half of the ArrayList into the new ArrayList.
-
-        // Count the number of comparisons.
-        counter.increment();
-        while (left.size() > 0 || right.size() > 0) {
-            // Compare the first element of the left ArrayList and the first element of the
-            // right ArrayList.
-
+        
+        // Initialise the index of the left ArrayList and the right ArrayList.
+        int i = 0;
+        int j = 0;
+        
+        while (i < left.size() && j < right.size()) {
+            // Iterate through the left and right halves, respectively, of the input arrays. 
             // Count the number of comparisons.
             counter.increment();
-            if (left.size() > 0 && right.size() > 0) {
-                // If the first element of the left ArrayList is smaller than the first element
-                // of the right ArrayList, add the first element of the left ArrayList into the
-                // new ArrayList.
-                // Count the number of comparisons.
-                counter.increment();
-                if (left.get(0).compareTo(right.get(0)) <= 0) {
-                    // Count the number of comparisons.
-                    
-                    // Add the first element of the left ArrayList into the new ArrayList.
-                    result.add(left.get(0));
-                    // Remove the first element of the left ArrayList.
-                    left.remove(0);
-                } else {
-
-                    // Add the first element of the right ArrayList into the new ArrayList.
-                    result.add(right.get(0));
-                    // Remove the first element of the right ArrayList.
-                    right.remove(0);
-                }
-                // If the left ArrayList is empty, add the first element of the right ArrayList
-                // into the new ArrayList.
-            
-                // Count the number of comparisons.
-                counter.increment();
-            } else if (left.size() > 0) {
-                // Add the first element of the left ArrayList into the new ArrayList.
-                result.add(left.get(0));
-                // Remove the first element of the left ArrayList.
-                left.remove(0);
-                
-                // If the right ArrayList is empty, add the first element of the left ArrayList
-                // into the new ArrayList.
-
-                // Count the number of comparisons.
-                counter.increment();
-            } else if (right.size() > 0) {
-                // Add the first element of the right ArrayList into the new ArrayList.
-                result.add(right.get(0));
-                // Remove the first element of the right ArrayList.
-                right.remove(0);
+            if (left.get(i).compareToIgnoreCase(right.get(j)) <= 0) { // Case insensitive comparison.
+                // If the element in the left ArrayList is smaller than the element in the right ArrayList,
+                result.add(left.get(i));
+                i++;
+            } else {
+                result.add(right.get(j));
+                j++;
             }
+            counter.increment();
+        }
+        while (i < left.size()) {
+            result.add(left.get(i));
+            i++;
+            counter.increment();
+        }
+        while (j < right.size()) {
+            result.add(right.get(j));
+            j++;
+            counter.increment();
         }
         // Return the new ArrayList.
         return result;
